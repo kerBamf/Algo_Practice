@@ -1,0 +1,29 @@
+<%- include('../../header.ejs', {name: 'Edit Undead'}) %>
+
+<h1>Edit Undead Entry</h1>
+
+<h2>what Did We Get Wrong?</h2>
+
+<form method="POST" action="/undead/<%= monster._id %>?_method=PUT">
+<label>Name:<input type="text" name="name" id="name" value="<%= monster.name %>"></input></label>
+<br>
+<label>Original Form:<input type="text" name="corpse" id="corpse" value="<%= monster.corpse %>"></input></label>
+<br>
+<label>Intelligence Level:<input type="text" name="intelligence" id="intelligence" value="<%= monster.intelligence %>"></input></label>
+<br>
+<label for="attacks">Attacks:</label>
+    <% let attackString = ""
+        for (let i = 0; i < monster.attacks.length; i++) { 
+            if (i === 0) {
+                attackString = monster.attacks[i] }
+            else {
+            attackString = attackString + "," + monster.attacks[i];}
+        }%>
+    <input type="text" name="attacks" id="attacks" value="<%= attackString %>"></input>
+    <br>
+<input type="submit" value="Submit to Codex"></input>
+</form>
+<h3><a href="/undead">Back to Undead Index</a></h3>
+
+</body>
+</html>
