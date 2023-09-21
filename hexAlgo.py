@@ -8,5 +8,6 @@ def rgb_to_hex(first, second, third):
     first_hex = hex(first)
     second_hex= hex(second)
     third_hex = hex(third)
+    print((first_hex + second_hex + third_hex))
 
 rgb_to_hex(255,255,0)
